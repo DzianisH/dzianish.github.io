@@ -1,0 +1,117 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #333;
+	background-color: #eee;
+}
+
+div {
+	color: #000;
+	transition: 0.3s;
+}
+
+img {
+	width: 70px;
+	border-radius: 35px;
+	margin: 10px 15px 0 0;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #1A6DBB;
+	transition: 0.3s;
+}
+
+::-moz-selection {
+	color: white; 
+	background: #1A6DBB;
+}
+
+::selection {
+	color: white; 
+	background: #999;
+}
+
+.content {
+	max-width: 60%;
+	margin: 0 auto;
+}
+
+
+.block {
+	margin: 1em auto;
+}
+
+.block-name {
+	text-align: center;
+	margin: 0.2em;
+}
+
+.intro {
+	margin: 150px 0 90px 0;
+	text-align: center;
+}
+
+.intro div{
+	margin-bottom: 10px;
+	font-size: 1.8em;
+	line-height: 1.8em;
+}
+
+.highlight {
+	background-color: #333;
+	color: #eee;
+}
+.highlight:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+.highlight-red {
+	background-color: darkred;
+	color: white;
+	transition: 0.3s;
+}
+
+.highlight-red:hover {
+	background-color: red;
+	color: white;
+	transition: 0.3s;
+}
+
+.display-flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cv-link {
+	margin: 0 0.25em;
+}
+
+.cv-link:hover {
+	font-size: 1.2em;
+}
+
+.blank-square {
+	width: 5em;
+	border-radius: 0.25em;
+	margin: 0;
+	text-align: center;
+	padding: 2em 0;
+	color: #fff;
+}
+
+.td {
+	margin: 0 1.5em;
+}
+
+.td div {
+	margin: 0.35em 0;
+}
+
