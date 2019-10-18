@@ -15,13 +15,6 @@ img {
 	border-radius: 2.5em;
 	margin: .6em 1em 0 0;
 	cursor: pointer;
-	transition: 0.3s;
-}
-
-img:hover {
-	width: 6em;
-	height: 6em;
-	border-radius: 3em;
 }
 
 a {
@@ -33,7 +26,6 @@ a {
 
 a:hover {
 	color: #000;
-	transition: 0.3s;
 }
 
 ::-moz-selection {
@@ -91,7 +83,11 @@ a:hover {
 	margin: 0 0.25em;
 }
 
-.cv-link:hover {
+.expandable {
+	transition: 0.3s;
+}
+
+.expandable:hover {
 	font-size: 1.2em;
 }
 
