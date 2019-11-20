@@ -4,7 +4,7 @@ body {
 	background-color: #eee;
 }
 
-div {
+div, p {
 	color: #000;
 	transition: 0.3s;
 }
@@ -26,6 +26,7 @@ a {
 
 a:hover {
 	color: #000;
+	text-decoration: underline;
 }
 
 ::-moz-selection {
@@ -54,15 +55,21 @@ a:hover {
 }
 
 .intro {
-	margin: 150px 0 90px 0;
+	margin: 130px 0 80px 0;
 	text-align: center;
 }
 
-.intro div{
+.also {
+	margin: 35px 0 15px 0;
+	text-align: center;
+}
+
+.intro > * , .also > * {
 	margin-bottom: 10px;
 	font-size: 1.8em;
 	line-height: 1.8em;
 }
+
 
 .highlight {
 	background-color: #333;
@@ -81,6 +88,10 @@ a:hover {
 
 .cv-link {
 	margin: 0 0.25em;
+}
+
+.cv-link:hover {
+	text-decoration: none;
 }
 
 .expandable {
@@ -104,7 +115,7 @@ a:hover {
 	margin: 0 1.5em;
 }
 
-.td div {
+.td > * {
 	margin: 0.35em 0;
 }
 
