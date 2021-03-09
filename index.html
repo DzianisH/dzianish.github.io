@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,500;1,300;1,400&display=swap" rel="stylesheet">
+		<style>
+* {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 200!important;
+    margin: .55em .1em;
+}
+span {
+    text-decoration: underline;
+}
+		</style>
+	</head>
+	<body>
+    <label>Грязными злотых в год</label>
+	<input type="number" placeholder="годовая зп в злотых" oninput="renderInfoByAnnualGrossZl(parseInt(event.target.value))"/>
+    
+	<p>Чистыми в год <span id="annualNetZlElm">0</span>zl</p>
+	<p>Чистыми в месяц <span id="monthlyNetZlElm">0</span>zl</p>
+	<p>Чистыми в месяц <span id="monthlyNetUsdElm">0</span>$</p>
+	<p>Годовой возврат за супруга <span id="annualCutZlElm">0</span>zl</p>
+	<p>Годовой возврат за супруга <span id="annualCutUsdElm">0</span>$</p>
+	
+    <script>
+      
+const NON_TAXED_BASE = 3091;
+const TAX18_BASE = 85528;
+const ZL_PER_USD = .25973;
+
+function toAnnualNetZl(annualGrossZl) {
+	let taxBase = annualGrossZl;
+	let tax = 0;
+	
+	if(annualGrossZl > TAX18_BASE) {
+		tax += (taxBase - TAX18_BASE) * .32;
+		taxBase = TAX18_BASE;
+	}
+	
+	if(taxBase > NON_TAXED_BASE) {
+		tax += (taxBase - NON_TAXED_BASE) * .18;
+	}
+	
+	return annualGrossZl - tax;		
+}
+
+function getAnnualTaxCutZl(annualGrossZl) {
+	if(annualGrossZl <= TAX18_BASE) {
+		return 0;
+	}
+	
+	const cutBase = Math.min(TAX18_BASE * 2, annualGrossZl) - TAX18_BASE;
+	return cutBase * .14;
+}
+
+function toSalaryInfo(annualGrossZl) {
+	const annualNetZl = toAnnualNetZl(annualGrossZl);
+	const monthlyNetZl = annualNetZl / 12;
+	const monthlyNetUsd = monthlyNetZl * ZL_PER_USD;
+	const annualCutZl = getAnnualTaxCutZl(annualGrossZl);
+	const annualCutUsd = annualCutZl * ZL_PER_USD;
+	
+	return {
+		annualNetZl,
+		monthlyNetZl,
+		monthlyNetUsd,
+		annualCutZl,
+		annualCutUsd
+	};
+}
+
+const annualGrossZlInputElm = document.getElementById("annualGrossZlInputElm");
+
+const annualNetZlElm = document.getElementById("annualNetZlElm");
+const monthlyNetZlElm = document.getElementById("monthlyNetZlElm");
+const monthlyNetUsdElm = document.getElementById("monthlyNetUsdElm");
+const annualCutZlElm = document.getElementById("annualCutZlElm");
+const annualCutUsdElm = document.getElementById("annualCutUsdElm");
+
+function renderInfoByAnnualGrossZl(annualGrossZl) {
+	const info = toSalaryInfo(annualGrossZl);
+	
+	annualNetZlElm.innerText = round(info.annualNetZl);
+	monthlyNetZlElm.innerText = round(info.monthlyNetZl);
+	monthlyNetUsdElm.innerText = round(info.monthlyNetUsd);
+	annualCutZlElm.innerText = round(info.annualCutZl);
+	annualCutUsdElm.innerText = round(info.annualCutUsd);
+}
+
+function round(val) {
+	return Math.round(val * 100) / 100;
+}
+	
+    </script>
+  </body>
+</html>
