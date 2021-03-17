@@ -22,6 +22,7 @@ span {
 	<p>Чистыми в год <span id="annualNetZlElm">0</span>zl</p>
 	<p>Чистыми в месяц <span id="monthlyNetZlElm">0</span>zl</p>
 	<p>Чистыми в месяц <span id="monthlyNetUsdElm">0</span>$</p>
+	<p>Грязными в месяц <span id="monthlyGrossUsdElm">0</span>$</p>
 	<p>Годовой возврат за супруга <span id="annualCutZlElm">0</span>zl</p>
 	<p>Годовой возврат за супруга <span id="annualCutUsdElm">0</span>$</p>
 	
@@ -60,6 +61,7 @@ function toSalaryInfo(annualGrossZl) {
 	const annualNetZl = toAnnualNetZl(annualGrossZl);
 	const monthlyNetZl = annualNetZl / 12;
 	const monthlyNetUsd = monthlyNetZl * ZL_PER_USD;
+	const monthlyGrossUsd = annualGrossZl * ZL_PER_USD / 12;
 	const annualCutZl = getAnnualTaxCutZl(annualGrossZl);
 	const annualCutUsd = annualCutZl * ZL_PER_USD;
 	
@@ -67,6 +69,7 @@ function toSalaryInfo(annualGrossZl) {
 		annualNetZl,
 		monthlyNetZl,
 		monthlyNetUsd,
+		monthlyGrossUsd,
 		annualCutZl,
 		annualCutUsd
 	};
@@ -77,6 +80,7 @@ const annualGrossZlInputElm = document.getElementById("annualGrossZlInputElm");
 const annualNetZlElm = document.getElementById("annualNetZlElm");
 const monthlyNetZlElm = document.getElementById("monthlyNetZlElm");
 const monthlyNetUsdElm = document.getElementById("monthlyNetUsdElm");
+const monthlyGrossUsdElm = document.getElementById("monthlyGrossUsdElm");
 const annualCutZlElm = document.getElementById("annualCutZlElm");
 const annualCutUsdElm = document.getElementById("annualCutUsdElm");
 
@@ -86,6 +90,7 @@ function renderInfoByAnnualGrossZl(annualGrossZl) {
 	annualNetZlElm.innerText = round(info.annualNetZl);
 	monthlyNetZlElm.innerText = round(info.monthlyNetZl);
 	monthlyNetUsdElm.innerText = round(info.monthlyNetUsd);
+	monthlyGrossUsdElm.innerText = round(info.monthlyGrossUsd);
 	annualCutZlElm.innerText = round(info.annualCutZl);
 	annualCutUsdElm.innerText = round(info.annualCutUsd);
 }
