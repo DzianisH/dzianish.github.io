@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- written by John Suen MD  Copyright 2012 John Suen MD-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Sleep Disorders Center Florida- Psychomotor Vigilance Test</title>
+    <link href="twoColFixLtHdr.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		#box{
+			position:relative;
+			width:200px;
+			height:200px;
+			
+			border:2px solid black;
+		}
+		#numeric{
+			width:50px;
+			height:20px;
+			position:absolute;
+			top:75px;
+			left:50px;
+			color:red;
+		}
+		#stop{
+			background-color: red;
+		}
+	
+	</style>
+<script type="text/javascript" src="pvt.js"></script>
+
+
+</head>
+
+<body onload="init()">
+
+<div class="container">
+  <div class="header"><img src="images/AASMLogo.png" id="AASMlogo" alt="AASM logo" width="139" height="170" /><img src="images/SDCFLogo.png" alt="SDCFlogo" name="SDCFlogo" width="455" height="178" id="SDCFlogo" style="background: #C6D444; " /><img src="images/LABPICS/VeroBeach01.jpg" alt="bedroom photo" width="287" height="178" id="photo"/>
+   
+   </div> <!-- end .header -->
+  <div class="sidebar1">
+    <ul class="nav">
+    	<li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="our-staff.html">Our staff</a></li>
+      <li><a href="ess.html">Epworth Sleepiness Score</a></li>
+      <li><a href="pvt1.html">Psychomotor Vigilance Test (PVT)</a></li>
+      <li><a href="locations.html" tabindex="50">Locations</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+   
+  <!-- end .sidebar1 --></div>
+  <div class="content">
+  
+<h1>Psychomotor Vigilance Test</h1>
+<p>Try this game to test your alertness and vigilance.</p>
+<p><em>Instructions:  Press start button. Single click on the box as soon as possible <i>after</i> red numbers appear in the box. The red numbers will
+appear at random times. The test lasts 2 minutes or until you press the Stop button.</em></p>
+<p>Taking the test for the entire 2 minutes allows a more accurate assessment. False starts (response times less than 100 msec) are excluded from final analysis.</p>
+	<div id="box">
+		<div id="numeric"></div>
+	</div>
+
+	 <form id="main" name="main" method="post" action="">
+	 	<div id="buttons">
+	 	<input type ="button"  value= "Start Test" onclick="startEntireTest()" /> 
+	 	</div>
+	 	
+	 </form>
+	<div id="responseOut"></div>
+    
+    <!-- end .content -->
+  </div>
+  <div class="footer">
+    <ul class="navfooter">
+     	<li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="our-staff.html">Our staff</a></li>
+      <li><a href="ess.html">Epworth Sleepiness Score</a></li>
+      <li><a href="pvt1.html">Psychomotor Vigilance Test (PVT)</a></li>
+      <li><a href="locations.html" tabindex="50">Location</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+     </ul>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+<!-- WiredMinds eMetrics tracking with Enterprise Edition V5.4 START -->
+<script type='text/javascript' src='https://count.carrierzone.com/app/count_server/count.js'></script>
+<script type='text/javascript'><!--
+wm_custnum='14b79b0fbef53b2a';
+wm_page_name='pvt1.html';
+wm_group_name='/services/webpages/s/l/sleepdisordersflorida.com/public';
+wm_campaign_key='campaign_id';
+wm_track_alt='';
+wiredminds.count();
+// -->
+</script>
+<!-- WiredMinds eMetrics tracking with Enterprise Edition V5.4 END -->
+</body>
+</html>
